@@ -1,1 +1,1 @@
-# ERDashboard-Angular
+1)Run "npm start" in console to download all dependencies.

@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{93D0C04D-D939-489E-A098-49C6742EF49A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6D1143D9-C1F0-4158-B462-41E7F1EA1113}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ERDashboard-angular", "src\ERDashboard\ERDashboard-angular.xproj", "{306424F1-0274-41D5-8DBD-D43CCD1BB337}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{306424F1-0274-41D5-8DBD-D43CCD1BB337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306424F1-0274-41D5-8DBD-D43CCD1BB337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306424F1-0274-41D5-8DBD-D43CCD1BB337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306424F1-0274-41D5-8DBD-D43CCD1BB337}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{306424F1-0274-41D5-8DBD-D43CCD1BB337} = {93D0C04D-D939-489E-A098-49C6742EF49A}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.infragistics.local:8080/tfs/engineering
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = src\\ERDashboard\\ERDashboard-angular.xproj
+		SccProjectTopLevelParentUniqueName1 = ERDashboard-angular.sln
+		SccProjectName1 = src/ERDashboard
+		SccLocalPath1 = src\\ERDashboard
+	EndGlobalSection
+EndGlobal

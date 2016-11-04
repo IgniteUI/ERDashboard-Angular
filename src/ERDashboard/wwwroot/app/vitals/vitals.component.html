@@ -1,0 +1,55 @@
+﻿<div class="tileHeading">
+    <span class="tileInfo">
+        <span class="subHeadingIcon vitalSignsHeadingIcon">&nbsp;</span>
+        <label class="tileUIElement tileTitle" data-localize="VitalSigns">Vital Signs</label>
+        <span id="selectedVital" class="tileTitle selectedResource">{{selectedVitalSign}}</span>
+    </span>
+    <span class="rightAligned rightAlignedFix" *ngIf="showCombo">
+        <ig-combo [(widgetId)]="comboId"
+                  [(options)]="comboOptions"
+                  [(dataSource)]="vitalSigns"
+                  [(ngModel)]="combo.value"
+                  (selectionChanged)="selectionChangedHandler($event)"
+                  (rendered)="renderedHandler($event)">
+        </ig-combo>
+    </span>
+    <a id="btnVGridChart" class="tileUIElement rightAligned" (click)="toggleState()">
+        <span class="headingChartIcon gridSelectIcon" [class.chartSelectIcon]="!showChartIcon">&nbsp;</span>
+    </a>
+    <span id="categoryButtons" class="rightAligned" *ngIf="showChart">
+        <a class="tileUIElement btnChartMode" data-chartSeries="column" (click)="changeSeriesTypeEvent($event)">
+            <span class="headingChartIcon columnChartIcon">&nbsp;</span>
+        </a>
+        <a class="tileUIElement btnChartMode" data-chartSeries="line" (click)="changeSeriesTypeEvent($event)">
+            <span class="headingChartIcon lineChartIcon">&nbsp;</span>
+        </a>
+        <a class="tileUIElement btnChartMode" data-chartSeries="spline" (click)="changeSeriesTypeEvent($event)">
+            <span class="headingChartIcon splineChartIcon">&nbsp;</span>
+        </a>
+    </span>
+    <span id="rangeButtons" class="rightAligned" *ngIf="showRangeCharts" [hidden]="!showRangeCharts">
+        <a class="tileUIElement btnChartMode" data-chartSeries="rangeColumn">
+            <span class="headingChartIcon rangeColumnChartIcon">&nbsp;</span>
+        </a>
+        <a class="tileUIElement btnChartMode" data-chartSeries="rangeArea">
+            <span class="headingChartIcon rangeAreaChartIcon">&nbsp;</span>
+        </a>
+    </span>
+</div>
+<div class="tileContent">
+   <div id="gridVitalsContainer" style="width: 100%; height: 100%" *ngIf="showGrid">
+        <ig-grid [widgetId]="'gridVitals'" [options]="gridOptions" [(dataSource)]="vitalData">
+            <column [(headerText)]="Time" [key]="'timestamp'" [dataType]="'date'"></column>
+            <column [(headerText)]="VitalSign" [key]="'vitalSignType'" [dataType]="'string'"></column>
+            <column [(headerText)]="Value" [key]="'vitalSignValue'" [dataType]="'number'"></column>
+        </ig-grid>
+    </div>
+    <div id="chartVitalsContainer"><ig-data-chart [widgetId]="'chartVitals'" [(options)]="chartOptions" [(dataSource)]="vitalData"></ig-data-chart></div>
+    <div id="legendChart"></div>
+</div>
+<div class="minimizedContainer">
+    <div class="innerContainer">
+        <span>Vital Signs</span>
+        <img src="Content/images/tileicons/tileVitals.png" alt="vitals" />
+    </div>
+</div>
