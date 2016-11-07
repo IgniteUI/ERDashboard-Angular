@@ -125,7 +125,8 @@ export class PatientsComponent {
       ],
       rendered: function (evt, args) {
         $("#" + this.id).igGridSelection("selectRow", 0);
-      },
+        $("#layoutContainer").on("igtilemanagertilemaximizing", this.storeIndex);
+      }.bind(this),
       localSchemaTransform: false
     };
   }
@@ -136,6 +137,14 @@ export class PatientsComponent {
       return false;
     }
   }
+
+  storeIndex(e, ui) {
+    //Patience Tile
+    if (ui.tile.data("index") === 3) {
+      this.layoutChangedIndex(ui.minimizingTile.data("index"));
+    }
+  }
+
   getPatienceNameColumnWidth() {
     if ($(window).width() < 1000) {
       return "50%";
