@@ -1,6 +1,7 @@
 ﻿
   <div id="gridRMedContainer" style="width: 100%; height: 100%">
     <ig-grid [widgetId]="'gridRMed'" [options]="gridOptions" [(dataSource)]="data">
+		<column [key]="'id'" [dataType]="'number'" [hidden]="true"></column>
 		<column [(headerText)]="Time" [key]="'timestamp'" [dataType]="'date'" [width]="'20%'"></column>
 		<column [(headerText)]="Medicine" [key]="'medName'" [dataType]="'string'" [width]="'20%'"></column>
 		<column [(headerText)]="Dosage" [key]="'dosage'" [dataType]="'number'" [width]="'20%'"></column>

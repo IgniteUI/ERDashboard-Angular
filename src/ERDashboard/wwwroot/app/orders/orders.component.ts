@@ -49,6 +49,7 @@ export class OrdersComponent {
       width: "100%",
       height: "100%",
       autoGenerateColumns: false,
+      primaryKey: "id",
       features: [
         {
           name: "Sorting",
