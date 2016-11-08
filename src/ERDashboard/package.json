@@ -4,7 +4,7 @@
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "lite": "lite-server",
-    "postinstall": "gulp restore",
+    "postinstall": "gulp restore && tsc",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings"
