@@ -38,6 +38,7 @@
   "devDependencies": {
     "concurrently": "3.0.0",
     "gulp": "^3.9.1",
+    "gulp-tsc": "^1.2.5",
     "lite-server": "2.2.2",
     "typescript": "2.0.3",
     "typings": "^0.8.1"

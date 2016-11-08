@@ -1,4 +1,5 @@
 ﻿var gulp = require('gulp');
+var tsc = require('gulp-tsc');
 
 var libs = './wwwroot/libs/';
 
@@ -55,6 +56,12 @@ gulp.task('restore:igniteui', function () {
     ]).pipe(gulp.dest(libs + 'igniteui'));
 });
 
+gulp.task('compile:igniteui-defs', function () {
+    gulp.src(libs + 'igniteui/igniteui.ts')
+    .pipe(tsc())
+    .pipe(gulp.dest(libs + 'igniteui'));
+});
+
 gulp.task('restore', [
     'restore:core-js',
     'restore:zone.js',
@@ -65,4 +72,5 @@ gulp.task('restore', [
     'restore:angular',
     'restore:bootstrap',
     'restore:igniteui',
+    'compile:igniteui-defs'
 ]);
