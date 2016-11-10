@@ -9,17 +9,22 @@
     <link href="http://cdn-na.infragistics.com/igniteui/2016.1/latest/css/themes/metro/infragistics.theme.css" rel="stylesheet" />
     <link href="http://cdn-na.infragistics.com/igniteui/2016.1/latest/css/structure/infragistics.css" rel="stylesheet" />
 
-    <!-- 1. Load libraries -->
-    <!-- Polyfill(s) for older browsers -->
-    <script src="libs/core-js/shim.min.js"></script>
-    <script src="libs/zone.js/zone.js"></script>
-    <script src="libs/reflect-metadata/Reflect.js"></script>
-    <script src="libs/systemjs/system.src.js"></script>
-
     <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <script src="http://malsup.github.io/jquery.blockUI.js"></script>
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+	<!-- IE required polyfills, in this exact order -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
+	<script src="https://unpkg.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+	<script src="https://unpkg.com/zone.js@0.6.23?main=browser"></script>
+	<script src="https://unpkg.com/typescript@2.0.2/lib/typescript.js"></script>
+	<script src="https://unpkg.com/reflect-metadata@0.1.3"></script>
+	<script src="https://unpkg.com/systemjs@0.19.27/dist/system.src.js"></script>
 
     <!-- Ignite UI Required Combined JavaScript Files -->
     <script src="http://cdn-na.infragistics.com/igniteui/2016.1/latest/js/infragistics.core.js"></script>
