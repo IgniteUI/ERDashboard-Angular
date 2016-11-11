@@ -42,6 +42,9 @@
       'igniteui-angular2': {
           main: './igniteui.angular2.ts',
           defaultExtension: 'ts'
+      },
+      api: {
+        defaultExtension: 'ts'
       }
     },
     transpiler: 'typescript',

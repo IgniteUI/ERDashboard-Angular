@@ -9,13 +9,13 @@ export class OrdersService {
 	constructor(public http: Http) {
 	}
 	getOrders(patientID): Promise<Patient[]> {
-		return this.http.get('/api/ordersData/' + patientID)
+		return this.http.get('/api/ordersData/?admittanceID=^' + patientID + '$')
 			.toPromise()
 			.then(this.extractData)
 			.catch(this.handleError);
 	}
 	private extractData(res: Response) {
-		let body = res.json();
+		let body = res.json().data;
 		return body || {};
 	}
 	private handleError(error: any) {

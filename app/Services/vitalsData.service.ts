@@ -11,13 +11,13 @@ export class VitalSignDataService {
         this.data = [];
     }
     getVitalSignData(patientID): Promise<VitalSignData[]> {
-        return this.http.get('api/getVitalSignData/' + patientID)
+        return this.http.get('api/getVitalSignData/?admittanceID=^' + patientID + '$')
             .toPromise()
             .then(this.extractData.bind(this))
             .catch(this.handleError);
     }
     private extractData(res: Response) {
-        let body = res.json();
+        let body = res.json().data;
         this.data = body;
         return body || {};
     }

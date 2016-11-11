@@ -125,8 +125,8 @@ export class PatientsComponent {
       ],
       rendered: function (evt, args) {
         $("#" + this.id).igGridSelection("selectRow", 0);
-        $("#layoutContainer").on("igtilemanagertilemaximizing", this.storeIndex);
       }.bind(this),
+      tileMaximizing: this.storeIndex.bind(this),
       localSchemaTransform: false
     };
   }

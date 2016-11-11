@@ -14,7 +14,7 @@ export class TestsDataService {
     }
     getTestsData(patientID): Promise<MedTestItem[]> {
 
-        return this.http.get('/api/testsData/' + patientID )
+        return this.http.get("/api/testsData/?admittanceId=^" + patientID + "$")
             .toPromise()
             .then(this.extractData.bind(this))
             .catch(this.handleError);
@@ -24,7 +24,7 @@ export class TestsDataService {
         return this.testData.filter(x => { return x.testTypeId === parseInt(testID); });
     }
     private extractData(res: Response) {
-        let body = res.json();
+        let body = res.json().data;
         this.testData = body; 
         return body || {};
     }

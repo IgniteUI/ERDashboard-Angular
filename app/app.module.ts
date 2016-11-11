@@ -9,10 +9,11 @@ import { LocalizerService } from './Services/localizer.service';
 import { VitalsComponent } from './vitals/vitals.component';
 import { IgGridComponent, IgTileManagerComponent, IgDialogComponent, IgQRCodeBarcodeComponent, IgComboComponent, IgDataChartComponent, Column } from "igniteui-angular2";
 import { FormsModule } from '@angular/forms';
-
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { Api } from '../api/api';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule],
+    imports: [BrowserModule, FormsModule, HttpModule, InMemoryWebApiModule.forRoot(Api)],
     providers: [LocalizerService],
     declarations: [AppComponent, VitalsComponent, OrdersComponent, MedTestComponent, IgTileManagerComponent, IgDialogComponent, IgQRCodeBarcodeComponent, IgComboComponent, IgDataChartComponent, IgGridComponent, PatientsComponent, Column],
     bootstrap: [ AppComponent ]

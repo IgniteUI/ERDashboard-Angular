@@ -27,7 +27,7 @@ export class LocalizerService {
             .then((res: Response) => {
                 if (res == null)
                     throw "No resource object passed to Localizer!";
-                else if (res.text() === "en")
+                else if (res.text().indexOf("en") !== -1)
                     this.res = new En();
                 else
                     this.res = new Ja();
