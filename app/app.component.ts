@@ -8,7 +8,7 @@ declare var jQuery: any;
 
 @Component({
     selector: 'my-app',
-    templateUrl: "../app/mainTemplate.html",
+    templateUrl: "app/mainTemplate.html",
     providers: [LocalizerService]
 })
 
