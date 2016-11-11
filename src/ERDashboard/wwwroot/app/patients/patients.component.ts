@@ -125,7 +125,7 @@ export class PatientsComponent {
       ],
       rendered: function (evt, args) {
         $("#" + this.id).igGridSelection("selectRow", 0);
-        $("#layoutContainer").on("igtilemanagertilemaximizing", this.storeIndex);
+        $("#layoutContainer").on("igtilemanagertilemaximizing", this.storeIndex.bind(this));
       }.bind(this),
       localSchemaTransform: false
     };
@@ -140,7 +140,7 @@ export class PatientsComponent {
 
   storeIndex(e, ui) {
     //Patience Tile
-    if (ui.tile.data("index") === 3) {
+    if (ui.tile.data("index") === 3 && ui.owner.element.attr("id") === "layoutContainer") {
       this.layoutChangedIndex(ui.minimizingTile.data("index"));
     }
   }
