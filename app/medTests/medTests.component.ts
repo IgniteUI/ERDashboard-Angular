@@ -173,11 +173,11 @@ export class MedTestComponent implements OnInit {
         this.formatter = this.formatGridValue.bind(this);
         var selectedItemTemplate = "<div>" +
             "</div>";
-        var imgSrcPrefix = '/Content/images/medTest/';
+        var imgSrcPrefix = 'Content/images/medTest/';
 
         this.tileOpts = {
-            maximizedState: "<div class='imageViewer maximizedItemTemplate'><img style='width:100%;height: 80%' src='/Content/images/medTest/${result}' /><div>${timestamp}</div></div>",
-            minimizedState: "<div style='width:100%; height: 100%; overflow: hidden;' class='minimizedItemTemplate' > <img style='width:100%;height: 100%;' src= '/Content/images/medTest/${result}' /></div>",
+            maximizedState: "<div class='imageViewer maximizedItemTemplate'><img style='width:100%;height: 80%' src='Content/images/medTest/${result}' /><div>${timestamp}</div></div>",
+            minimizedState: "<div style='width:100%; height: 100%; overflow: hidden;' class='minimizedItemTemplate' > <img style='width:100%;height: 100%;' src= 'Content/images/medTest/${result}' /></div>",
             animationDuration: 150,
             rightPanelTilesHeight: "100%",
             columnHeight: "33%",
