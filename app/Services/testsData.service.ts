@@ -14,7 +14,7 @@ export class TestsDataService {
     }
     getTestsData(patientID): Promise<MedTestItem[]> {
 
-        return this.http.get("/api/testsData/?admittanceId=^" + patientID + "$")
+        return this.http.get("api/testsData/?admittanceId=^" + patientID + "$")
             .toPromise()
             .then(this.extractData.bind(this))
             .catch(this.handleError);

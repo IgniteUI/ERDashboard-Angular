@@ -9,7 +9,7 @@ export class PatientService {
     constructor(public http: Http) {
     }
     getPatients(): Promise<Patient[]> {
-        return this.http.get('/api/patients')
+        return this.http.get('api/patients')
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);

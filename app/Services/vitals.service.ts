@@ -10,7 +10,7 @@ export class VitalSignService {
     constructor(public http: Http) {
     }
     getVitalSigns(): Promise<VitalSignType[]> {
-        return this.http.get('/api/vitalSignTypes')
+        return this.http.get('api/vitalSignTypes')
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);

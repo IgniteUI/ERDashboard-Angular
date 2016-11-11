@@ -10,7 +10,7 @@ export class MedTestsTypesService {
     constructor(public http: Http) {
     }
     getMedTests(): Promise<ItemType[]> {
-        return this.http.get('/api/medTestsTypes')
+        return this.http.get('api/medTestsTypes')
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
