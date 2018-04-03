@@ -12,7 +12,7 @@
     </div>
     <ig-tile-manager widgetId="layoutContainer" [(options)]="options" style="width:100%; height:100%; display:block">
         <vitals class="dashboardTile vitals nonPatients" [(res)]="res" [selectedAdmittance]="selectedAdmittance">
-             <!-- Vitals Component -->
+            <!-- Vitals Component -->
         </vitals>
         <med-tests [(res)]="res" class="dashboardTile tests nonPatients"  [selectedAdmittance]="selectedAdmittance">
             <!-- Medical Tests Component -->
@@ -39,7 +39,7 @@
                 <span class="subHeadingIcon patientsHeadingIcon">&nbsp;</span>
                 <label class="tileTitle" data-localize="PatientsAdmissions">{{patientsAdmissions}}</label>
             </div>
-            <div id='patientsTileContent' class="tileContent">
+            <div id='patientsTileContent' class="tileContent"> 
                 <patients [(res)]="res" (notify)="admittanceSelected($event)" class="dashboardTile tileContent patients">
 
                 </patients>

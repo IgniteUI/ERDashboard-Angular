@@ -50,17 +50,18 @@ gulp.task('restore:bootstrap', function () {
     ]).pipe(gulp.dest(libs + 'bootstrap'));
 });
 
-gulp.task('restore:igniteui', function () {
+gulp.task('restore:tslib', function () {
     gulp.src([
-        'node_modules/igniteui-angular2/*.*'
-    ]).pipe(gulp.dest(libs + 'igniteui'));
+        'node_modules/tslib/*.js'
+    ]).pipe(gulp.dest(libs + 'tslib'));
 });
 
-gulp.task('compile:igniteui-defs', function () {
-    gulp.src(libs + 'igniteui/igniteui.ts')
-    .pipe(tsc())
-    .pipe(gulp.dest(libs + 'igniteui'));
+gulp.task('restore:igniteui', function () {
+    gulp.src([
+        'node_modules/igniteui-angular-wrappers/bundles/*.*'
+    ]).pipe(gulp.dest(libs + 'igniteui-angular-wrappers/bundles'));
 });
+
 
 gulp.task('restore', [
     'restore:core-js',
@@ -70,7 +71,7 @@ gulp.task('restore', [
     'restore:rxjs',
     'restore:angular-in-memory-web-api',
     'restore:angular',
+    'restore:tslib',
     'restore:bootstrap',
-    'restore:igniteui',
-    'compile:igniteui-defs'
+    'restore:igniteui'
 ]);

@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input } from "@angular/core";
-import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular2";
+import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular-wrappers";
 import { VitalSignDataService } from "../Services/vitalsData.service";
 import { VitalSignService } from "../Services/vitals.service";
 import { VitalSignType } from "../Models/VitalSignType";
@@ -19,7 +19,7 @@ export class VitalsComponent implements OnInit {
     combo: any;
 
     vitalSigns: Array<any> = [];
-    vitalData: any;
+    vitalData: Array<any> = [];
 
     comboOptions: IgCombo;
     gridOptions: IgGrid;
@@ -318,7 +318,7 @@ export class VitalsComponent implements OnInit {
             width: "100%",
             height: "100%",
             autoGenerateColumns: false,
-            dataSource: [],
+            //dataSource: [],
             features: [
                 {
                     name: "Sorting",
@@ -382,13 +382,13 @@ export class VitalsComponent implements OnInit {
     }
 
     getVitalSigns(): void {
-        this.vitalSignService.getVitalSigns().then(vitalSigns => {
+        this.vitalSignService.getVitalSigns().subscribe(vitalSigns => {
             this.vitalSigns = vitalSigns;
         });
     }
 
     getVitalSignsData(patientID): void {
-        this.vitalSignDataService.getVitalSignData(patientID).then(vitalData => {
+        this.vitalSignDataService.getVitalSignData(patientID).subscribe(vitalData => {
             this.vitalData = vitalData;
             this.vitalData = this.vitalSignDataService.filterGridChartData(this.combo.value);
             let values = this.findMinMaxValue(this.vitalData);
@@ -513,7 +513,7 @@ export class VitalsComponent implements OnInit {
         var currTarget = event.currentTarget,
             chart = $("#chartVitals"),
             currChartSeries = chart.igDataChart("option", "series")[0],
-            newChartSeries = $(currTarget.attributes["data-chartseries"]).val();
+            newChartSeries: any = $(currTarget.attributes["data-chartseries"]).val();
         chart.igDataChart("option", "series", [{ name: currChartSeries.name, remove: true }]);
         chart.igDataChart("option", "series", [this.createCategorySeries(newChartSeries)]);
     }

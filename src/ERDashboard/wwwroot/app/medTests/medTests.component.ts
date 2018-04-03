@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input } from "@angular/core";
-import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular2";
+import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular-wrappers";
 import { MedTestsTypesService } from "../Services/medTestsTypes.service";
 import { TestsDataService } from "../Services/testsData.service";
 import { ItemType } from "../Models/ItemType";
@@ -7,7 +7,6 @@ import { MedTestItem } from "../Models/MedTestItem";
 import { TileObject } from "../Models/TileObject";
 import {Subscription} from "rxjs";
 import 'rxjs/Rx';
-import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 declare var jQuery: any;
@@ -28,7 +27,7 @@ export class MedTestComponent implements OnInit {
     //grid options
     public gridOpts: IgGrid;
     public testsData: MedTestItem[];
-    public gridData: any;
+    public gridData: any = [];
     public combo;
     //chart optionss
     private chartOpts: IgDataChart;
@@ -36,7 +35,7 @@ export class MedTestComponent implements OnInit {
     private chartData: any;
     public title: any;
     //tile optionss
-    private tileOpts: IgTileManager;
+    private tileOpts: any;
     private showGrid: boolean = false;
     private showChart: boolean = false;
     private minMaxValues: any = { min: 0, max: 1 };
@@ -155,7 +154,7 @@ export class MedTestComponent implements OnInit {
     @Input('selectedAdmittance')
     set selectedAdmittance(value: any) {
         if (value && !jQuery.isEmptyObject(value)) {
-            this.testDataService.getTestsData(value.patientID).then(
+            this.testDataService.getTestsData(value.patientID).subscribe(
                 data => {
                     this.gridData = data;
                     this.gridData = this.testDataService.filterData(1);
@@ -265,8 +264,9 @@ export class MedTestComponent implements OnInit {
     }
 
     getMedTests(): void {
-        this.medTestsService.getMedTests().then(medTests =>
-            this.medTests = medTests);
+        this.medTestsService.getMedTests().subscribe(medTests =>
+            this.medTests = medTests
+        );
     }
     formatGridValue(value, rec) {
         var res = this.medTests.filter(item => { return item.id === parseInt(rec["testTypeId"]); });

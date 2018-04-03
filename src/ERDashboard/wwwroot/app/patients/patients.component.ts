@@ -41,7 +41,7 @@ export class PatientsComponent {
   constructor(patientService: PatientService) {
     var notify = this.notify;
     var self = this;
-    patientService.getPatients().then(value => {
+    patientService.getPatients().subscribe(value => {
       this.data = value;
 
       let selectedAdmittance = this.data[0];

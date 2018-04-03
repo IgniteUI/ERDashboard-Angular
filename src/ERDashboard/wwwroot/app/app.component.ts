@@ -1,8 +1,10 @@
 ﻿import { Component, HostListener } from '@angular/core';
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
-import {Http} from "@angular/http";
+import { HttpClient } from "@angular/common/http";
 import {LocalizerService} from "./Services/localizer.service";
+import { En } from './Localizers/en';
+import { Ja } from './Localizers/ja';
 
 declare var jQuery: any;
 
@@ -20,23 +22,30 @@ export class AppComponent {
     private qrOptions: any;
     private versionInfo;
     public res: any;
-  public name: string = "";
-  public patientsAdmissions: string = "";
-  private mainTileManagerSelector: string = "#layoutContainer";
+    public name: string = "";
+    public patientsAdmissions: string = "";
+    private mainTileManagerSelector: string = "#layoutContainer";
     public layoutHeight: number;
 
-  //TODO: should be changed by the patients component
+    //TODO: should be changed by the patients component
     public selectedAdmittance: any = {};
 
     constructor(private locService: LocalizerService) {
-    var self = this;
-    this.date = new Date();
-        this.layoutHeight = jQuery(window).height() * 90/100
-        this.locService.get().then(
+        var self = this;
+        this.date = new Date();
+        this.layoutHeight = jQuery(window).height() * 90 / 100
+        this.locService.get().subscribe(
             res => {
-        this.res = res;
-        this.patientsAdmissions = this.res.Patients.PatientsAdmissions;
-      });
+                if (res == null)
+                    throw "No resource object passed to Localizer!";
+                else if (res["showcaseLangauge"] === "en")
+                    this.res = new En();
+                else
+                    this.res = new Ja();
+                //return this.res;
+                //this.res = res;
+                this.patientsAdmissions = this.res.Patients.PatientsAdmissions;
+            });
         this.options = {
             marginLeft: 10,
             marginTop: 10,
@@ -51,7 +60,7 @@ export class AppComponent {
             minimizedState: ".minimizedContainer",
             maximizedState: ".tileHeading, .tileContent"
         };
-        
+
         this.dialogOptions = {
             state: "closed",
             modal: true,
@@ -91,10 +100,10 @@ export class AppComponent {
     infoBtnClicked() {
         this.dialogOptions.state = "opened";
     }
-  admittanceSelected($event) {
-    this.selectedAdmittance = $event;
-    this.name = this.selectedAdmittance.name;
-  }
+    admittanceSelected($event) {
+        this.selectedAdmittance = $event;
+        this.name = this.selectedAdmittance.name;
+    }
 
     @HostListener('window:resize', ['$event'])
     windowResized(event) {

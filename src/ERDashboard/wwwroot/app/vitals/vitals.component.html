@@ -37,7 +37,7 @@
     </span>
 </div>
 <div class="tileContent">
-   <div id="gridVitalsContainer" style="width: 100%; height: 100%" *ngIf="showGrid">
+    <div id="gridVitalsContainer" style="width: 100%; height: 100%" *ngIf="showGrid">
         <ig-grid [widgetId]="'gridVitals'" [options]="gridOptions" [(dataSource)]="vitalData">
             <column [(headerText)]="Time" [key]="'timestamp'" [dataType]="'date'"></column>
             <column [(headerText)]="VitalSign" [key]="'vitalSignType'" [dataType]="'string'"></column>

@@ -1,29 +1,21 @@
 ﻿import { Injectable, Output, EventEmitter } from '@angular/core';
 import { VitalSignData } from "../Models/VitalSignData";
-import { Http, Response } from '@angular/http';
-import { Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Injectable()
 export class VitalSignDataService {
-    public data: VitalSignData[];
+    public data: Array<VitalSignData>;
 
-    constructor(public http: Http) {
+    constructor(public http: HttpClient) {
         this.data = [];
     }
-    getVitalSignData(patientID): Promise<VitalSignData[]> {
-        return this.http.get('api/getVitalSignData/' + patientID)
-            .toPromise()
-            .then(this.extractData.bind(this))
-            .catch(this.handleError);
+    getVitalSignData(patientID): any {
+        let observable = this.http.get<any[]>('api/getVitalSignData/' + patientID);
+        observable.subscribe(d => this.data = d);
+        return observable;
     }
-    private extractData(res: Response) {
-        let body = res.json();
-        this.data = body;
-        return body || {};
-    }
-    private handleError(error: any) {
-    }
+
     filterGridChartData(typeID): any {
         return this.data.filter(x => { return x.vitalSignTypeID === parseInt(typeID); });
-    }  
+    }
 }

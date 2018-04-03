@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
+using System.Net.Http;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,10 +15,10 @@ namespace ERDashboard.Controllers
     {
         // GET: api/utils
         [HttpGet]
-        public string Get()
+        public JsonResult Get()
         {
             string showcaseLangauge = GetUserResourceFile(Request.Headers["Accept-Language"]);
-            return showcaseLangauge;
+            return Json(new { showcaseLangauge = showcaseLangauge });
         }
 
         private string GetUserResourceFile(string acceptLanguage)

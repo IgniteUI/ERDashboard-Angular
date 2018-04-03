@@ -1,26 +1,14 @@
 ﻿import { Injectable } from '@angular/core';
 import { VitalSignType } from "../Models/VitalSignType";
-import { Http, Response } from '@angular/http';
-import { Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { VitalsComponent } from '../vitals/vitals.component';
 
 @Injectable()
 export class VitalSignService {
 
-    constructor(public http: Http) {
+    constructor(public http: HttpClient) {
     }
-    getVitalSigns(): Promise<VitalSignType[]> {
-        return this.http.get('/api/vitalSignTypes')
-            .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError);
+    getVitalSigns(){
+        return this.http.get<any[]>('/api/vitalSignTypes');
     }
-    private extractData(res: Response) {
-        let body = res.json();
-        return body || {};
-    }
-    private handleError(error: any) {
-    }
-
-    
 }
