@@ -25,7 +25,7 @@
       // other libraries
       'rxjs':                      'npm:rxjs@5.0.1',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api@0.3.0',
-      'igniteui-angular2': 'npm:igniteui-angular2'
+      'igniteui-angular-wrappers': 'npm:igniteui-angular-wrappers@5.0.7'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -40,9 +40,8 @@
         main: './index.js',
         defaultExtension: 'js'
       },
-      'igniteui-angular2': {
-          main: './igniteui.angular2.ts',
-          defaultExtension: 'ts'
+      'igniteui-angular-wrappers': {
+          main: './bundles/igniteui-angular-wrappers.umd.js'
       },
       api: {
         defaultExtension: 'ts'

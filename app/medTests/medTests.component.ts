@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input } from "@angular/core";
-import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular2";
+import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular-wrappers";
 import { MedTestsTypesService } from "../Services/medTestsTypes.service";
 import { TestsDataService } from "../Services/testsData.service";
 import { ItemType } from "../Models/ItemType";

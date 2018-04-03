@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input } from "@angular/core";
-import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular2";
+import { IgComboComponent, IgDataChartComponent, IgGridComponent } from "igniteui-angular-wrappers";
 import { VitalSignDataService } from "../Services/vitalsData.service";
 import { VitalSignService } from "../Services/vitals.service";
 import { VitalSignType } from "../Models/VitalSignType";
@@ -305,7 +305,7 @@ export class VitalsComponent implements OnInit {
             mode: "dropdown",
             enableClearButton: false,
             dataBound: function (e, ui) {
-                //TODO: Remove this event when this issue is resolved - https://github.com/IgniteUI/igniteui-angular2/issues/111
+                //TODO: Remove this event when this issue is resolved - https://github.com/IgniteUI/igniteui-angular-wrappers/issues/111
                 ui.owner.value(3);
             }
         }
