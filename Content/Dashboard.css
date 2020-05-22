@@ -479,9 +479,11 @@ div.ui-dialog {
     width: 100%;
     height: 40px;
     line-height: 40px;
-    text-align: center;
-    background-color: #FF7814;
+    background-color: #354C9C;
     max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .infragistics-about {
