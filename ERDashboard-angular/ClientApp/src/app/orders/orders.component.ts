@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { OrdersService } from '../Services/orders.service';
 
+declare var jQuery: any;
+
 @Component({
     selector: 'orders',
     templateUrl: "./orders.component.html",

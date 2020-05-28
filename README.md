@@ -14,10 +14,5 @@ The main purpose of having exactly the sample is to demonstrate the capabilities
 ## Running
 
 - [Download](https://github.com/IgniteUI/ERDashboard-Angular/archive/master.zip) or clone the repo
-- Make sure you are in folder "ERDashboard-Angular-master\ERDashboard-Angular-master\ClientApp"
-- Open command prompt and type:
-	- <code>npm install</code>
-	- <code>dotnet restore</code>
-	- <code>dotnet build</code>
-	- <code>dotnet run</code>
+- Open and run in Visual Studio 2019. More information on how to run, deploy and publish the project, can be found [here](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-3.1&tabs=visual-studio)
 - The application is running now and can be reviewed into a browser

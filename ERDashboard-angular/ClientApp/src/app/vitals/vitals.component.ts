@@ -135,8 +135,8 @@ export class VitalsComponent implements OnInit {
             highValue = data.item().vitalSignValue;
         }
 
-        lowValue = $("#chartVitals").igDataChart("scaleValue", "yAxis", lowValue);
-        highValue = $("#chartVitals").igDataChart("scaleValue", "yAxis", highValue);
+        lowValue = jQuery("#chartVitals").igDataChart("scaleValue", "yAxis", lowValue);
+        highValue = jQuery("#chartVitals").igDataChart("scaleValue", "yAxis", highValue);
 
         return { low: lowValue, high: highValue };
     }
@@ -148,7 +148,7 @@ export class VitalsComponent implements OnInit {
 
         var top = bounds.high - (high.height + 5);
         var bottom = bounds.low;
-        var grid = $("#chartVitals").igDataChart("option", "gridAreaRect");
+        var grid = jQuery("#chartVitals").igDataChart("option", "gridAreaRect");
 
         if (top < grid.top) {
             top = grid.top;
@@ -352,12 +352,12 @@ export class VitalsComponent implements OnInit {
                     type: "numericY",
                     labelExtent: 45,
                     titleAngle: 270,
-                    //maximumValue: this.findMinMaxValue($("#chartVitals").igDataChart("option", "dataSource")).max + 3, //values.max + 3,
-                    //minimumValue: this.findMinMaxValue($("#chartVitals").igDataChart("option", "dataSource")).min - 3//values.min - 3
+                    //maximumValue: this.findMinMaxValue(jQuery("#chartVitals").igDataChart("option", "dataSource")).max + 3, //values.max + 3,
+                    //minimumValue: this.findMinMaxValue(jQuery("#chartVitals").igDataChart("option", "dataSource")).min - 3//values.min - 3
                 }
             ],
             //dataBound: function (evt, ui) {
-            //    $("#chartVitals").igDataChart("option", "axes",
+            //    jQuery("#chartVitals").igDataChart("option", "axes",
             //        [{
             //            name: "yAxis",
             //            maximumValue: this.findMinMaxValue(this.vitalData).max + 3,
@@ -388,7 +388,7 @@ export class VitalsComponent implements OnInit {
             this.vitalData = vitalData;
             this.vitalData = this.vitalSignDataService.filterGridChartData(this.combo.value);
             let values = this.findMinMaxValue(this.vitalData);
-            $("#chartVitals").igDataChart("option", "axes",
+            jQuery("#chartVitals").igDataChart("option", "axes",
                 [{
                     name: "yAxis",
                     type: "numericY",
@@ -474,18 +474,18 @@ export class VitalsComponent implements OnInit {
         }
     }
     renderedHandler(event: any) {
-        //var vital = $("#cbxVitalSType").igCombo("selectedItems")[0];
+        //var vital = jQuery("#cbxVitalSType").igCombo("selectedItems")[0];
         //this.selectedVitalSign = vital.data.name;
     }
     selectionChangedHandler(event: any) {
-        $("#selectedVital").fadeOut();
+        jQuery("#selectedVital").fadeOut();
         setTimeout(function () {
-            $("#selectedVital").text(event.ui.items[0].data.name);
+            jQuery("#selectedVital").text(event.ui.items[0].data.name);
         }, 400);
-        $("#selectedVital").fadeIn();
+        jQuery("#selectedVital").fadeIn();
         var newData = this.vitalSignDataService.filterGridChartData(event.ui.items[0].data.id);
         this.vitalData = newData;
-        //$("#chartVitals").igDataChart("option", "dataSource", data.dataView());
+        //jQuery("#chartVitals").igDataChart("option", "dataSource", data.dataView());
         var values = this.findMinMaxValue(newData),
             title;
         if (newData.length > 0) {
@@ -495,7 +495,7 @@ export class VitalsComponent implements OnInit {
         } else {
             title = "";
         }
-        $("#chartVitals").igDataChart("option", "axes",
+        jQuery("#chartVitals").igDataChart("option", "axes",
             [{
                 name: "yAxis",
                 type: "numericY",
@@ -507,14 +507,14 @@ export class VitalsComponent implements OnInit {
 
     changeSeriesTypeEvent(event: any) {
         var currTarget = event.currentTarget,
-            chart = $("#chartVitals"),
+            chart = jQuery("#chartVitals"),
             currChartSeries = chart.igDataChart("option", "series")[0],
-            newChartSeries: any = $(currTarget.attributes["data-chartseries"]).val();
+            newChartSeries: any = jQuery(currTarget.attributes["data-chartseries"]).val();
         chart.igDataChart("option", "series", [{ name: currChartSeries.name, remove: true }]);
         chart.igDataChart("option", "series", [this.createCategorySeries(newChartSeries)]);
     }
     toggleMode(seriesType: string): any {
-        var chart = $("#chartVitals"),
+        var chart = jQuery("#chartVitals"),
             currChartSeries = chart.igDataChart("option", "series")[0];
         chart.igDataChart("option", "series", [{ name: currChartSeries.name, remove: true }]);
         if (seriesType == "rangeColumn") {
