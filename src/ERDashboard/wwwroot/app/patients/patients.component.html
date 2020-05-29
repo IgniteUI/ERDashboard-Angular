@@ -1,8 +1,0 @@
-﻿<ig-grid [(options)]="gridOptions" [(dataSource)]="data" [(widgetId)]="id">
-  <column [key]="'patientID'" [headerText]="'ID'" [dataType]="'number'" [width]="'0%'" [hidden]="true"></column>
-  <column [key]="'name'" [(headerText)]="Name" [dataType]="'string'" [(width)]="colWidth"></column>
-  <column [key]="'visited'" [(headerText)]="Visited" [dataType]="'bool'" [width]="'10%'" [(hidden)]="colVisibility"></column>
-  <column [key]="'severity'" [(headerText)]="Severity" [dataType]="'string'" [width]="'15%'" [template]="'<span class=\'${severityImageUrl}\' />'" [(hidden)]="colVisibility"></column>
-  <column [key]="'diagnosis'" [(headerText)]="Diagnosis" [dataType]="'string'" [width]="'30%'"></column>
-  <column [key]="'disposition'" [(headerText)]="Disposition" [dataType]="'string'" [width]="'25%'" [(hidden)]="colVisibility"></column>
-</ig-grid>

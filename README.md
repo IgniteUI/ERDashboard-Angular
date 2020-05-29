@@ -5,19 +5,14 @@ The main purpose of having exactly the sample is to demonstrate the capabilities
 
 ## Requirements
 
- - [.NET Core SDK](https://github.com/dotnet/cli/blob/rel/1.0.0/README.md#installers-and-binaries)
+ - [.NET Core SDK](https://dot.net/core)
  - [Node.js](https://docs.npmjs.com/getting-started/installing-node#installing-nodejs)
  - [npm](https://docs.npmjs.com/getting-started/installing-node#updating-npm)
 
-> **Note:** If using Visual Studio, [TypeScript 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=48593) is required to build the project.
+> **Note:** If using Visual Studio, [TypeScript](https://www.microsoft.com/en-us/download/details.aspx?id=55258) is required to build the project.
 
 ## Running
 
 - [Download](https://github.com/IgniteUI/ERDashboard-Angular/archive/master.zip) or clone the repo
-- Make sure you are in folder "ERDashboard-Angular-master\ERDashboard-Angular-master\src\ERDashboard"
-- Open command prompt and type:
-	- <code>npm install</code>
-	- <code>dotnet restore</code>
-	- <code>dotnet build</code>
-	- <code>dotnet run</code>
+- Open and run in Visual Studio 2019. More information on how to run, deploy and publish the project, can be found [here](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-3.1&tabs=visual-studio)
 - The application is running now and can be reviewed into a browser
